@@ -1,0 +1,10 @@
+﻿body {
+    padding-top: 70px;
+    
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+   min-height:calc(100vh - 145px);
+}
+

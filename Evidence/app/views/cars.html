@@ -1,0 +1,45 @@
+﻿<div class="row">
+    <div class="col-12">
+        <h2>Cars</h2>
+        <div class="d-flex justify-content-end">
+            <a href="#!/create" class="btn btn-outline-primary mb-1">Add</a>
+        </div>
+    </div>
+    <div class="col-12">
+        <table class="table table-bordered table-striped">
+            <thead style="background-color:rgb(229 223 223)">
+                <tr>
+                    <th>Picture</th>
+                    <th>Company</th>
+                    <th>Model</th>
+                    <th>Release Date</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="c in model.cars">
+                    <td><img ng-src="{{dataUrl}}Uploads/{{c.Picture}}" width="80" class="rounded-circle" /></td>
+                    <td>{{c.Company}}</td>
+                    <td>{{c.Model}}</td>
+                    <td>{{c.ReleaseDate|date:'yyyy-MM-dd'}}</td>
+                    <td>{{c.Price|currency}}</td>
+                    <td>
+                        <a href="#!/edit/{{c.Id}}" class="btn btn-outline-primary">Edit</a>
+                        <button type="button" class="btn btn-outline-danger" ng-click="showModal(c)">Delete</button>
+                    </td>
+                </tr>
+
+            </tbody>
+            <tfoot style="background-color:rgb(229 223 223)">
+                <tr>
+                    <td colspan="6">
+                        <my-car></my-car>
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+
+</div>

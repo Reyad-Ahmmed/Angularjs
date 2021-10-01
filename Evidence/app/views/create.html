@@ -1,0 +1,70 @@
+﻿<div class="row" ng-controller="createCarCtrl">
+    <div class="col-10 offset-2">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" ng-show='apiMessage'>
+            <strong>{{apiMessage}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="col-10 offset-2">
+        <h2>Create New Car</h2>
+    </div>
+    <div class="col-12">
+        <form name="frmAdd">
+            <div class="form-group row mb-1">
+                <label class="col-form-label col-2 text-end">Company</label>
+                <div class="col-4">
+                    <input name="company" ng-model="current.Company" class="form-control" required maxlength="40" />
+                    <div class="text-danger" ng-show="!frmAdd.company.$pristine && frmAdd.company.$error.required">
+                        Company is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label class="col-form-label col-2  text-end">Model</label>
+                <div class="col-4">
+                    <input name="model" ng-model="current.Model" class="form-control" required maxlength="40" />
+                    <div class="text-danger" ng-show="!frmAdd.model.$pristine && frmAdd.model.$error.required">
+                        Model is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label class="col-form-label col-2  text-end">Release Date</label>
+                <div class="col-4">
+                    <datepicker date-format="yyyy-MM-dd">
+                        <input name="reldate" ng-model="current.ReleaseDate" class="form-control" required />
+                    </datepicker>
+                    <div class="text-danger" ng-show="!frmAdd.reldate.$pristine && frmAdd.reldate.$error.required">
+                        Release Date is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label class="col-form-label col-2 text-end">Price</label>
+                <div class="col-4">
+                    <input name="price" ng-model="current.Price" class="form-control" required />
+                    <div class="text-danger" ng-show="!frmAdd.price.$pristine && frmAdd.price.$error.required">
+                        Price is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <label class="col-form-label col-2 text-end">Picture</label>
+                <div class="col-4">
+                    <input type="file" name="Picture" ng-model="current.Picture"
+                           class="form-control" base-sixty-four-input accept="image/*" ng-required="true" />
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <div class="col-10 offset-2">
+                    <button type="submit" ng-disabled="frmAdd.$invalid" class="btn btn-outline-success btn-sm" ng-click="insert(frmAdd)">Save</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" ng-click="cancel()">Cancel</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-10 offset-2">
+        <a href="#!/cars" class="btn btn-link px-0">Preview Car List</a>
+    </div>
+</div>

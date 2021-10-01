@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "angular-base64-upload": "^0.1.23",
+    "angularjs-datepicker": "^2.1.23"
+  }
+}
